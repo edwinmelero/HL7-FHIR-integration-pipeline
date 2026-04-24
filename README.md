@@ -56,3 +56,25 @@ PID|1||123456^^^Hospital||Doe^John||19900101|M|||
   "gender": "male",
   "birthDate": "1990-01-01"
 }
+
+---
+
+## ⚠️ Challenges & Solutions
+
+During development, several real-world integration challenges were encountered:
+
+### 1. HL7 Parsing Issues
+Initial parsing using a Python HL7 library failed to correctly identify segments due to formatting inconsistencies.  
+**Solution:** Implemented manual parsing logic to reliably extract PID segment data.
+
+### 2. Duplicate Resource Errors (FHIR 412)
+Repeated submissions of identical patient data resulted in duplicate resource errors from the FHIR server.  
+**Solution:** Introduced dynamic identifiers to ensure unique patient creation.
+
+### 3. PUT Request Constraints (FHIR 400)
+FHIR server required matching resource IDs in both the request body and URL for PUT operations.  
+**Solution:** Established a single source of truth for resource IDs across the request.
+
+### 4. Public FHIR Server Limitations
+Using a shared test server introduced constraints such as duplicate detection and persistent data.  
+**Solution:** Adjusted request logic to accommodate server behavior and ensure successful responses.
