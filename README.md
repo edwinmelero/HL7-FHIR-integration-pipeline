@@ -1,4 +1,4 @@
-![HL7 to FHIR Banner](https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/banner.png)
+![HL7 to FHIR Integration Banner](https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/banner.png)
 # HL7 to FHIR Integration Pipeline (Python)
 
 ## Overview
