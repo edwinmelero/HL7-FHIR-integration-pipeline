@@ -7,11 +7,6 @@ It simulates how legacy hospital systems communicate with modern API-based healt
 
 ---
 
-## Architecture
-
-HL7 Message → Python Processing → FHIR JSON → REST API → FHIR Server
-
----
 
 ## Technologies Used
 
@@ -32,6 +27,32 @@ HL7 Message → Python Processing → FHIR JSON → REST API → FHIR Server
 - Handles duplicate prevention using unique identifiers
 - Demonstrates real-world healthcare data flow
 
+---
+
+## Architecture Diagram
+
+```mermaid
+flowchart LR
+
+subgraph INPUT
+A[HL7 v2 ADT Message]
+end
+
+subgraph PROCESSING
+B[HL7 Parser]
+C[Data Extraction Layer]
+D[HL7 → FHIR Transformation]
+end
+
+subgraph OUTPUT
+E[FHIR Patient Resource]
+F[REST API Client]
+G[HAPI FHIR Server]
+H[(FHIR Database)]
+end
+
+A --> B --> C --> D --> E --> F --> G --> H
+```
 ---
 
 ## Sample HL7 Message
@@ -56,6 +77,7 @@ PID|1||123456^^^Hospital||Doe^John||19900101|M|||
   "gender": "male",
   "birthDate": "1990-01-01"
 }
+```
 
 ---
 
